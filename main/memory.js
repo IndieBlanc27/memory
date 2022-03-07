@@ -29,7 +29,6 @@ document.addEventListener("DOMContentLoaded",()=>{
             delay(1000).then(()=>{
                 cells[i].src = "images/back.jpeg"
             })
-
         })        
     };
 })
