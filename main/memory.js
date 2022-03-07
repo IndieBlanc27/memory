@@ -1,9 +1,33 @@
 import { createGrid } from "./grid.js";
 
 document.addEventListener("DOMContentLoaded",()=>{
-    console.log("hello!");
-    const grid = createGrid(null)
+    var images = [
+        {src:"image1.jpeg", count: 0},
+        {src:"image2.jpeg", count: 0},
+        {src:"image0.jpeg", count: 0},
+        {src:"image3.jpeg", count: 0},
+        {src:"image4.jpeg", count: 0},
+        {src:"image5.jpeg", count: 0},
+        {src:"image6.jpeg", count: 0},
+        {src:"image7.jpeg", count: 0},
+        {src:"image8.jpeg", count: 0},
+        {src:"image9.jpeg", count: 0}
+    ];
+    const grid = createGrid(images);
     console.table("grid",grid);
+
+    let cells = document.getElementsByClassName("carte");
+    for(let i=0; i<cells.length; i++){
+        cells[i].addEventListener('click', () => {
+            var attribute = cells[i].src;
+            var position = cells[i].id;
+            var row = position.substring(4,5);
+            var column = position[position.length-1];
+            var image = searchCard(grid, row, column);
+            var source = "./images/"+ image;
+            cells[i].setAttribute("src", source);
+        })        
+    };
 })
 
 function memory(firstCard, secondCard){
@@ -14,13 +38,7 @@ function memory(firstCard, secondCard){
 }
 export { memory }
 
-function click(id){
-    var images = ["image0.jpeg", "image1.jpeg", "image2.jpeg", "image3.jpeg", "image4.jpeg", "image5.jpeg", "image6.jpeg", "image7.jpeg", "image8.jpeg", "image9.jpeg"]
-    var image = document.getElementById(id);
-    var attribute = image.getAttribute("src");
-    if(attribute == "./images/back.jpeg")
-        attribute = "./images/"+ Math.floor(Math.random()*images.length);
-    else
-        attribute = "./images/back.jpeg"
-    image.setAttribute("src", attribute)	
+function searchCard(grid, row, column){
+    let image = grid[row][column];
+    return image.value;
 }
