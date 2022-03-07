@@ -3,6 +3,10 @@ document.addEventListener("DOMContentLoaded",()=>{
 })
 
 function memory(firstCard, secondCard){
-
+    if(firstCard == secondCard){
+        return true
+    } else {
+        return false
+    }
 }
 export { memory }
