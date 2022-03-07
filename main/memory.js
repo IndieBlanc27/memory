@@ -24,8 +24,11 @@ document.addEventListener("DOMContentLoaded",()=>{
             var row = position.substring(4,5);
             var column = position[position.length-1];
             var image = searchCard(grid, row, column);
-            var source = "./images/"+ image;
-            cells[i].setAttribute("src", source);
+            cells[i].src = "./images/"+ image;
+            delay(1000).then(()=>{
+                cells[i].src = "images/back.jpeg"
+            })
+
         })        
     };
 })
