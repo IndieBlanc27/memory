@@ -1,4 +1,5 @@
 import { createGrid } from "./grid.js";
+import delay from "./delay.js";
 
 document.addEventListener("DOMContentLoaded",()=>{
     var images = [
