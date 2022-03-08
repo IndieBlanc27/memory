@@ -1,6 +1,9 @@
 import { createGrid } from "./grid.js";
 import delay from "./delay.js";
 
+const card1 = "";
+const card2 = "";
+
 document.addEventListener("DOMContentLoaded",()=>{
     var images = [
         {src:"image1.jpeg", count: 0},
