@@ -1,6 +1,6 @@
 import {expect} from 'chai'
 import mocha from 'mocha'
-import {memory} from "./memory.js"
+import {memory} from "../main/memory.js"
 
 describe("Memory Game", function(){
     it("The two cards are same", function(){

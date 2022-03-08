@@ -1,0 +1,27 @@
+{
+  "name": "memory",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IndieBlanc27/memory.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IndieBlanc27/memory/issues"
+  },
+  "homepage": "https://github.com/IndieBlanc27/memory#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.19.2"
+  },
+  "dependencies": {
+    "mocha": "^9.2.1"
+  }
+}
