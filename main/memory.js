@@ -1,9 +1,6 @@
 import { createGrid } from "./grid.js";
 import delay from "./delay.js";
 
-const card1 = "";
-const card2 = "";
-
 document.addEventListener("DOMContentLoaded",()=>{
     var images = [
         {src:"image1.jpeg", count: 0},
@@ -20,6 +17,8 @@ document.addEventListener("DOMContentLoaded",()=>{
     const grid = createGrid(images);
     console.table("grid",grid);
 
+    var cardArray = [];
+
     let cells = document.getElementsByClassName("carte");
     for(let i=0; i<cells.length; i++){
         cells[i].addEventListener('click', () => {
@@ -29,12 +28,25 @@ document.addEventListener("DOMContentLoaded",()=>{
             var column = position[position.length-1];
             var image = searchCard(grid, row, column);
             cells[i].src = "./images/"+ image;
-            delay(1000).then(()=>{
+            /*delay(1000).then(()=>{
                 cells[i].src = "images/back.jpeg"
-            })
-        })        
-    };
-})
+            })*/
+            cardArray.push(cells[i]);
+            if(cardArray.length == 2){
+                var areSame = memory(cardArray[0].src, cardArray[1].src);
+                if(!areSame){
+                    var card1 = cardArray[0];
+                    var card2 = cardArray[1];
+                    delay(1000).then(()=>{
+                        card1.src = "./images/back.jpeg";
+                        card2.src = "./images/back.jpeg";
+                    })
+                }
+                cardArray.shift();
+                cardArray.shift();
+            }
+        })     
+    }})
 
 function memory(firstCard, secondCard){
     if(firstCard == secondCard)
