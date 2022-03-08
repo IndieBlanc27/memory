@@ -28,9 +28,6 @@ document.addEventListener("DOMContentLoaded",()=>{
             var column = position[position.length-1];
             var image = searchCard(grid, row, column);
             cells[i].src = "./images/"+ image;
-            /*delay(1000).then(()=>{
-                cells[i].src = "images/back.jpeg"
-            })*/
             cardArray.push(cells[i]);
             if(cardArray.length == 2){
                 var areSame = memory(cardArray[0].src, cardArray[1].src);
@@ -45,8 +42,9 @@ document.addEventListener("DOMContentLoaded",()=>{
                 cardArray.shift();
                 cardArray.shift();
             }
-        })     
-    }})
+        })
+    } 
+})
 
 function memory(firstCard, secondCard){
     if(firstCard == secondCard)
